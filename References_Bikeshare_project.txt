@@ -1,3 +1,0 @@
-All the information required to complete this project was provided in the Introduction to programming with Python which is a part of the Machine Learning Foundation Nano Degree Program at Udacity.
-
-The template for this code was provided my Udacity as a part of the course material. The funtions and methods used were a part of the course taught at udacity.
