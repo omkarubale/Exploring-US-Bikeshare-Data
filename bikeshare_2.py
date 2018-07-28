@@ -175,6 +175,34 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+def display_heads(df):
+    print('Would you like to have a glimpse of the data? (yes or no):')
+    input_user = str(input()).lower()
+    while not (input_user in ['yes','no']):
+        print('Sorry, that was an invalid input. Please try again.')
+        input_user = str(input()).lower()
+
+    if input_user == 'yes':
+        count = 5
+        print('Here are the first 5 rows of the data: ')
+        print(df.head())
+
+        while input_user in ['yes']:
+            print('Would you like to see more data or exit? (enter \'yes\' or \'exit\':')
+            input_user = str(input()).lower()
+            while not (input_user in ['yes','exit']):
+                print('Sorry, that was an invalid input. Please try again.')
+                input_user = str(input()).lower()
+
+            if input_user == 'yes':
+                count += 5
+                print('Here are 5 more rows of the data: ')
+                print(df.head(count))
+
+        print('Great! you\'re done previewing the data!')
+
+
+
 
 def main():
     while True:
@@ -185,6 +213,8 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
+
+        display_heads(df)
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
